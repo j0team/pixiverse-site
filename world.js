@@ -309,7 +309,6 @@ export function createWorld({ assets, width, chapterHeight, mobile }) {
   ctx.fillStyle = 'rgba(190, 207, 145, .66)';
   ctx.fillRect(0, 0, width, worldHeight);
 
-  const mainX = width * (mobile ? .68 : .50);
   const roadWidth = mobile ? 64 : 92;
   const buildingSize = mobile
     ? width * .38
@@ -324,20 +323,9 @@ export function createWorld({ assets, width, chapterHeight, mobile }) {
   ];
   const entranceXs = buildingTops.map(() => buildingLeft + buildingSize * .53);
   const entranceYs = buildingTops.map(value => value + buildingSize);
-  const branchYs = entranceYs.map(value => value + (mobile ? 42 : 52));
   const outdoorEntryRoad = sampledRoad(routes.outdoorEntry, width, chapterHeight, 0, LIBRARY_START);
   outdoorEntryRoad.unshift([routes.outdoorEntry[0][1] * width, -80]);
-  const roadPaths = [
-    { points: outdoorEntryRoad, width: roadWidth },
-  ];
-  for (let index = 0; index < buildingTops.length; index += 1) {
-    roadPaths.push({ points: [
-      [mainX, branchYs[index]],
-      [entranceXs[index], branchYs[index]],
-      [entranceXs[index], entranceYs[index]],
-    ], width: mobile ? 34 : 46 });
-  }
-  drawRoadNetwork(ctx, roadPaths);
+  drawRoadNetwork(ctx, [{ points: outdoorEntryRoad, width: roadWidth }]);
 
   const portalPoint = samplePolyline(LIBRARY_START, routes.outdoorEntry);
   const portal = { x: portalPoint.x * width, y: portalPoint.y * chapterHeight };

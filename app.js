@@ -1,5 +1,5 @@
 import { FocusChallenge, remainingSeconds, TrailFollower, facingBetween } from './journey.js?v=fba0f5a53fa6';
-import { createWorld, WORLD_ASSETS, SCENES, LIBRARY_START, LIBRARY_EXIT } from './world.js?v=5104729fb80b';
+import { createWorld, WORLD_ASSETS, SCENES, LIBRARY_START, LIBRARY_EXIT } from './world.js?v=415db02b8a9a';
 import { createRewardExperience, REWARD_ASSETS } from './reward.js?v=4cda0dcc2964';
 
 const $ = selector => document.querySelector(selector);
