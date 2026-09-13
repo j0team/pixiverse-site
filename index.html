@@ -1,46 +1,96 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pixiverse</title>
-    <meta name="description" content="Pixiverse is a pixel-art productivity game where your real life is the RPG.">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <main class="shell">
-      <header class="topbar">
-        <a class="brand" href="./">Pixiverse</a>
-        <nav class="nav">
-          <a href="about/">About</a>
-          <a href="privacy/">Privacy</a>
-        </nav>
-      </header>
-
-      <section class="hero card">
-        <p class="eyebrow">Your real life is the RPG</p>
-        <h1>Study, quest, and level up.</h1>
-        <p class="lead">Pixiverse turns focus sessions, task planning, and social accountability into a lightweight pixel-art experience.</p>
-        <div class="actions">
-          <a class="button primary" href="about/">Learn more</a>
-          <a class="button" href="privacy/">Privacy policy</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#8aaa66">
+  <meta name="description" content="A little world for your real-life progress. Meet Picky, find your focus, and grow together in Pixiverse.">
+  <title>Pixiverse: A little focus. A bigger adventure.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=bb7883c28ec0">
+  <link rel="stylesheet" href="transition.css?v=8ca4795f1b79">
+  <link rel="stylesheet" href="reward.css?v=2c99db0dfb6a">
+  <link rel="canonical" href="https://pixiverse.app/">
+</head>
+<body>
+  <canvas id="world" aria-hidden="true"></canvas>
+  <div class="world-shade" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Pixiverse, back to start"><span class="brand-spark" aria-hidden="true">✦</span> pixiverse</a>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <a href="#home" aria-current="page">Home</a>
+      <a href="privacy/">Privacy policy</a>
+      <a href="credits/">Credits</a>
+    </nav>
+    <button class="restart-button" id="restart" type="button" aria-label="Restart the walkthrough"><span aria-hidden="true">↺</span><span class="restart-label">Start over</span></button>
+  </header>
+  <main id="journey">
+    <section class="chapter hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+        <h1 id="hero-title">PIXIVERSE<span class="title-star" aria-hidden="true">✦</span></h1>
+        <p class="hero-tagline">A little focus.<br>A bigger adventure.</p>
+        <p class="intro">Turn the things you want to do into a world you want to come back to.</p>
+        <a class="journey-link" href="#picky">Take a little walk <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="character-tag" aria-hidden="true">
+        <span>that's you!</span>
+        <svg viewBox="0 0 18 30" focusable="false"><path d="M8 0h2v20h5v3h-3v3h-2v4H8v-4H6v-3H3v-3h5z"/></svg>
+      </div>
+      <div class="hero-bottom">Scroll to move <span aria-hidden="true">↓</span></div>
+    </section>
+    <section class="chapter" id="picky" aria-labelledby="picky-title">
+      <div class="chapter-copy left-copy">
+        <p class="eyebrow">A FRIEND FROM DAY ONE</p>
+        <h2 id="picky-title">Big plans.<br>Little sidekick.</h2>
+        <p>Meet Picky, a tiny companion for your everyday adventures. Every little bit of progress feels better together.</p>
+        <span class="hand-note">Small friend. Very big supporter.</span>
+      </div>
+    </section>
+    <section class="chapter" id="village" aria-labelledby="village-title">
+      <div class="chapter-copy village-copy">
+        <p class="eyebrow">MAKE ROOM FOR WHAT MATTERS</p>
+        <h2 id="village-title">What will you<br>work on today?</h2>
+        <p>A chapter to read. A skill to build. A little time for yourself. Find your place and take the first step.</p>
+      </div>
+    </section>
+    <section class="chapter focus-chapter" id="focus" aria-labelledby="focus-title">
+      <div class="chapter-copy focus-copy">
+        <p class="eyebrow">A TINY TASTE OF FOCUS</p>
+        <h2 id="focus-title">Good things take<br>a little focus.</h2>
+        <p>Take a seat. Give yourself five quiet seconds. The rest of the adventure can wait.</p>
+        <div class="timer" role="timer" aria-label="Five-second focus timer">
+          <span id="seconds">05</span>
+          <span class="timer-unit">SECONDS<br>JUST FOR YOU</span>
         </div>
-      </section>
-
-      <section class="grid">
-        <article class="card">
-          <h2>Core loop</h2>
-          <p>Create tasks, sit for timed sessions, earn XP, and see your progress grow over time.</p>
-        </article>
-        <article class="card">
-          <h2>Social play</h2>
-          <p>Join friends in multiplayer study rooms, send messages, and stay visible while you work.</p>
-        </article>
-        <article class="card">
-          <h2>Privacy first</h2>
-          <p>Pixiverse uses device-based auth and keeps the minimum data needed to run the game.</p>
-        </article>
-      </section>
-    </main>
-  </body>
+        <p id="focus-status" class="focus-status" role="status">Your focus challenge starts when you arrive.</p>
+        <button class="text-button" id="revisit" type="button" hidden>Revisit your reward</button>
+      </div>
+      <div class="wood-sign" id="focus-sign" hidden>
+        <span class="nail nail-left"></span><span class="nail nail-right"></span>
+        <strong id="sign-title">Stop Scrolling!</strong>
+        <span id="sign-subtitle">Focus!</span>
+      </div>
+      <a class="continue-link" id="continue" href="#friends" hidden>Nice work! Keep walking <span aria-hidden="true">↓</span></a>
+    </section>
+    <section class="chapter finale" id="friends" aria-labelledby="friends-title" hidden>
+      <div class="final-copy">
+        <p class="eyebrow">YOUR PEOPLE. YOUR PACE.</p>
+        <h2 id="friends-title">Better, together.</h2>
+        <p>Build a streak. Find your people. <span class="keep-together">Grow together.</span></p>
+        <button class="pixel-button discord-button" id="discord" type="button" aria-disabled="true">Join our Discord <span aria-hidden="true">↗</span></button>
+        <p class="discord-note">Join Discord for more news.<br><span id="discord-status" role="status">Invite link coming soon.</span></p>
+      </div>
+      <footer>
+        <a class="brand" href="#home">✦ pixiverse</a>
+        <span>A little world for your real-life progress.</span>
+        <nav aria-label="Footer navigation"><a href="privacy/">Privacy</a><a href="credits/">Credits</a></nav>
+        <button id="replay" type="button">Walk it again ↺</button>
+      </footer>
+    </section>
+  </main>
+  <aside class="journey-hud" aria-label="Journey progress"><span id="chapter-number">01</span><span class="hud-line"></span><span id="chapter-name">THE BEGINNING</span></aside>
+  <noscript><div class="noscript">Enable JavaScript to explore the village and try the focus challenge.</div></noscript>
+  <script src="app.js?v=acdd3c0ed1cd" type="module"></script>
+</body>
 </html>

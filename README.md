@@ -1,16 +1,17 @@
-# pixiverse-site
+# Pixiverse site
 
-Small static site for Pixiverse.
+Static scroll walkthrough for Pixiverse, deployed to https://pixiverse.app with GitHub Pages.
 
-Pages:
-- `/` home
-- `/about/` about
-- `/privacy/` privacy policy
+## Routes
 
-Designed to work as a GitHub Pages site.
+- `/`: interactive village, five-second focus challenge, reward wheel, and friends.
+- `/privacy/`: the existing game privacy policy, with updated presentation.
+- `/credits/`: art and font acknowledgements.
+- `/about/`: the existing About content, with shared presentation.
+- `/privacy.html` and `/credits.html`: compatibility redirects.
 
-## Deploy
+Run `npm test` for the behavior and mobile viewport regression checks. Run `npm run dev` for a localhost preview. No dependency installation or application build is required.
 
-1. In the repository settings, enable GitHub Pages and choose **GitHub Actions** as the source.
-2. Push to `main` to deploy.
-3. The custom domain is set via `CNAME` to `pixiverse.app`.
+Pushing `main` runs the tests and deploys an explicit public-file allowlist through GitHub Actions. Tests, documentation, Git metadata, and local preview tooling are excluded from the Pages artifact. Preserve `CNAME` and `.nojekyll`.
+
+The Discord invite is intentionally pending. The walkthrough does not grant in-game rewards or connect to the game backend. Reduced-motion settings are respected. Browser/device visual checks supplement the automated suite.

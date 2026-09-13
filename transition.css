@@ -1,0 +1,36 @@
+.scene-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  pointer-events: none;
+  background: #263d34;
+  color: #f4e6c1;
+  opacity: 0;
+  font: 700 clamp(24px, 4vw, 54px)/1.5 Pixeloid, monospace;
+}
+.scene-transition small {
+  display: block;
+  font: 400 12px/2 Pixeloid, monospace;
+  margin-top: 15px;
+}
+.portal-ring {
+  width: clamp(88px, 14vw, 144px);
+  aspect-ratio: 1;
+  border-radius: 22.4%;
+  overflow: hidden;
+  display: block;
+  background: url("assets/app-icon.png") center / contain no-repeat;
+  filter: drop-shadow(6px 6px 0 #152820);
+  image-rendering: pixelated;
+  animation: portal-pulse .4s steps(4, end) infinite alternate;
+}
+@keyframes portal-pulse {
+  from { transform: scale(.9); }
+  to { transform: scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portal-ring { animation: none; }
+}

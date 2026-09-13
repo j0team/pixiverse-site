@@ -28,11 +28,22 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Version assets
+        run: python3 scripts/version_assets.py
+
+      - name: Test walkthrough
+        run: npm test
+
       - name: Prepare site artifact
         run: |
           mkdir -p _site
-          cp index.html styles.css CNAME .nojekyll _site/
-          cp -R about privacy _site/
+          cp index.html privacy.html credits.html *.css *.js favicon.svg CNAME .nojekyll _site/
+          cp -R about privacy credits assets _site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

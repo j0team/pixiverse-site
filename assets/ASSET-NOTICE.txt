@@ -1,0 +1,13 @@
+Pixiverse website asset notice
+
+The Pixeloid Sans font files in this directory are Copyright (c) 2020-2025
+GGBotNet and are distributed under the SIL Open Font License 1.1. See OFL.txt.
+
+Some pixel artwork in this directory originates from LimeZu asset packs and
+is included in the Pixiverse website under licenses held by the project owner.
+The published tilesheet files retain only the source regions used by this
+website; unused source artwork has been removed. The artwork is not offered as
+a standalone asset pack or for reuse or redistribution outside Pixiverse.
+
+Creator and asset pack acknowledgements:
+https://pixiverse.app/credits/
