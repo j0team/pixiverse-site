@@ -444,8 +444,5 @@ function initialize() {
   $('#restart').addEventListener('click', restart);
   $('#replay').addEventListener('click', restart);
   $('#revisit').addEventListener('click', () => reward.open({ replay: true }));
-  $('#discord').addEventListener('click', () => {
-    $('#discord-status').textContent = 'The Discord invite will be added here soon.';
-  });
   requestAnimationFrame(draw);
 }

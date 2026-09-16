@@ -14,4 +14,4 @@ Run `npm test` for the behavior and mobile viewport regression checks. Run `npm 
 
 Pushing `main` runs the tests and deploys an explicit public-file allowlist through GitHub Actions. Tests, documentation, Git metadata, and local preview tooling are excluded from the Pages artifact. Preserve `CNAME` and `.nojekyll`.
 
-The Discord invite is intentionally pending. The walkthrough does not grant in-game rewards or connect to the game backend. Reduced-motion settings are respected. Browser/device visual checks supplement the automated suite.
+The Discord button opens the Pixiverse community invite. The walkthrough does not grant in-game rewards or connect to the game backend. Reduced-motion settings are respected. Browser/device visual checks supplement the automated suite.
